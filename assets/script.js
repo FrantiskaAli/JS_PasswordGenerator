@@ -103,9 +103,9 @@ alert("Welcome, please keep in mind password can only be 10-64 characters long a
  var numerics = confirm("Would you like your password to include numbers?");//will return boolean
  
  var specials = confirm("Would you like your password to include special characters?");//will return boolean
-
+//the return is an object so I can access all the choices 
  return {
-  chosenLength: length,
+  chosenLength: Number(length),
   chosenLowerCase: lowerCase,
   chosenUpperCase: upperCase,
   chosenNumeric: numerics,
@@ -114,21 +114,46 @@ alert("Welcome, please keep in mind password can only be 10-64 characters long a
 }
 
 // Function for getting a random element from an array
-/*function getRandom(arr) {
-
-  return arr[Math.floor(Math.random() * arr.length)]
+function getRandom(arr) {
+ return arr[Math.floor(Math.random() * arr.length)]
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  //this is what will be called
-  //first function get password options
-  //then generate passworrd
+    var options = getPasswordOptions();
+
+  var password = [];
+if (10 > options.chosenLength || options.chosenLength > 64){
+  alert("Password must to be between 10 and 64 character long. Try again.")
+} else if (10 < options.chosenLength < 64 ) {
+  for(let i = 0; i < options.chosenLength; i++){
+   var characters = [getRandom(specialCharacters), getRandom(numericCharacters), getRandom(lowerCasedCharacters), getRandom(upperCasedCharacters)] 
+   if (options.chosenLowerCase) {
+    password.push(characters[2])
+  } else if (options.chosenNumeric){
+    password.push(characters[1])
+  } else if (options.chosenSpecial){
+    password.push(characters[0])
+  } else if (options.chosenUpperCase){
+    password.push(characters[3])
+  } else if (options.chosenLowerCase && options.chosenSpecial){
+    password.push[characters]
+  } else if (option)
+
+  
+  }
+  console.log(password)
+}
+
 }
 
 
+generatePassword()
 
 
+
+
+/*
 //_____________________________________________________________________________________________
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
