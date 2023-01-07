@@ -103,23 +103,16 @@ alert("Welcome, please keep in mind password can only be 10-64 characters long a
  const numerics = confirm("Would you like your password to include numbers?");//will return boolean
  
  const specials = confirm("Would you like your password to include special characters?");//will return boolean
-//the return is an object so I can access all the choices 
- 
-/*let options = [
- {isTrue: lowerCase, arrayAssigned: lowerCasedCharacters}, 
- {isTrue:upperCase, arrAssigned : upperCasedCharacters },
- {isTrue: numerics, arrAssigned : numericCharacters},
- {isTrue: specials, arrAssigned : specialCharacters},
- {howLong: Number(long),}]*/
+
  let options = [[lowerCase, lowerCasedCharacters], [upperCase, upperCasedCharacters], [numerics, numericCharacters], [ specials, specialCharacters], long]
 
- return options;
+ return options;//options array will be used to acces input data in other functions
  }
 // Function for getting a random element from an array
 function getRandom(arr) {
  return arr[Math.floor(Math.random() * arr.length)];
 }
-//change 
+
 
 //this function will make sure we are only picking characters from chosen arrays
 function pickFromOptions(par){
@@ -146,37 +139,9 @@ function generatePassword() {
   for (let i = 0; i < options[4]; i++){
      password.push(pickFromOptions(options)[Math.floor(Math.random() * pickFromOptions(options).length )])
         }
-  return password.join('');}
+  return password.join('');} //.join joins password array without commas or spaces
     }
 
-  
-
-  
-  
-    //for (const _key in options){
-      //if(options.name == true){
-       // password.push(getRandom(options.arrAssigned))
-      //}
-   // }
-
-
-  //for(let i = 0; i < options.chosenLength; i++){
-   //var characters = [getRandom(specialCharacters), getRandom(numericCharacters), getRandom(lowerCasedCharacters), getRandom(upperCasedCharacters)] 
-   //password.push(characters[Math.floor(Math.random() * 4)])
-  
-
-
-
-
-
-
-console.log(generatePassword())
-
-
-/*
-
-
-//_____________________________________________________________________________________________
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
@@ -192,36 +157,3 @@ function writePassword() {
 generateBtn.addEventListener('click', writePassword); 
 
 
-
-
-
-accessing shit
-console.log(Object.entries(getPasswordOptions)[3])
-VM1889:1 undefined
-undefined
-var moznosti = getPasswordOptions
-undefined
-var moznosti = getPasswordOptions()
-undefined
-console.log(moznosti)
-VM2133:1 (5) [{…}, {…}, {…}, {…}, {…}]0: {isTrue: true, arrayAssigned: Array(26)}1: {isTrue: true, arrAssigned: Array(26)}2: {isTrue: true, arrAssigned: Array(10)}3: {isTrue: true, arrAssigned: Array(23)}4: {howLong: 30}length: 5[[Prototype]]: Array(0)
-undefined
-console.log(object.entries(moznosti)[2])
-VM2295:1 Uncaught ReferenceError: object is not defined
-    at <anonymous>:1:13
-(anonymous) @ VM2295:1
-console.log(Object.entries(moznosti)[2])
-VM2503:1 (2) ['2', {…}]0: "2"1: {isTrue: true, arrAssigned: Array(10)}length: 2[[Prototype]]: Array(0)
-undefined
-console.log(Object.entries(moznosti)[2].arrayAssigned)
-VM2847:1 undefined
-undefined
-console.log(Object.entries(moznosti)[2].arrAssigned)
-
-VM2857:1 undefined
-undefined
-console.log(Object.entries(moznosti)[2][1].arrAssigned)
-
-
-VM2871:1 (10) ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-undefined*/
