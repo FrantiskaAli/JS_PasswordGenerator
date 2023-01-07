@@ -18,4 +18,4 @@ Here is how my application look like :
 
 ![Screenshot](./assets/Untitled.png)
 ## Link
-[Here](...) you can find my deployed application, enjoy!
+[Here](https://frantiskaali.github.io/JS_PasswordGenerator/) you can find my deployed application, enjoy!
