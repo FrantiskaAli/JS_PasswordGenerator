@@ -92,7 +92,7 @@ const upperCasedCharacters = [
 function getPasswordOptions() {
 alert("Welcome, please keep in mind password can only be 10-64 characters long and it will be required for you to choose at lease one type of characters.");
  
- const length = prompt("How long would you like your password to be?");//will return numbers
+ const long = prompt("How long would you like your password to be?");//will return numbers
 
 
  const lowerCase = confirm("Would you like your password to include lowercase letters?");//will return boolean
@@ -106,33 +106,45 @@ alert("Welcome, please keep in mind password can only be 10-64 characters long a
 //the return is an object so I can access all the choices 
  
 let options = [
-  length,
  {isTrue: lowerCase, arrayAssigned: lowerCasedCharacters}, 
  {isTrue:upperCase, arrAssigned : upperCasedCharacters },
  {isTrue: numerics, arrAssigned : numericCharacters},
- {isTrue: specials, arrAssigned : specialCharacters},]
+ {isTrue: specials, arrAssigned : specialCharacters},
+ {howLong: Number(long),}]
  return options;
  }
 // Function for getting a random element from an array
 function getRandom(arr) {
  return arr[Math.floor(Math.random() * arr.length)]
 }
+function pickFromOptions(obj){
+  for (let i = 0; i < Object.entries(obj).length; i++){
+    if (obj[i].isTrue == true){
+      console.log(Object.entries(obj)[i][1].arrAssigned)
 
+    }
+  }
+}
 
 
 // Function to generate password with user input
 /*function generatePassword() {
-  var password = [];
-  var options = getPasswordOptions();
-    for(let i= 0; i < options.chosenLength; i++){
-
-        for (const key in options) {
-        if (options.name === true){
-          password.push(getRandom(options.arrAssigned))
-        };
+  let jdeTo = 0
+  let password = [];
+  let options = getPasswordOptions();
+  for (let i = 0; i < options.howLong; i++){
+    for (let y = 0 ; y < options.length -1; y++){
+      if(options[y].isTrue == true){
+        password.push(options[y].arrAssigned)
+        
       }
-     return password
     }
+    }
+  password
+  
+  }
+  
+    
     
     //options.filter(options => options.name == true);
     //password.push(getRandom(options.arrAssigned));
@@ -147,7 +159,7 @@ function getRandom(arr) {
   //for(let i = 0; i < options.chosenLength; i++){
    //var characters = [getRandom(specialCharacters), getRandom(numericCharacters), getRandom(lowerCasedCharacters), getRandom(upperCasedCharacters)] 
    //password.push(characters[Math.floor(Math.random() * 4)])
-  }
+  
 
 
 
@@ -173,4 +185,39 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword); */
+generateBtn.addEventListener('click', writePassword); 
+
+
+
+
+
+accessing shit
+console.log(Object.entries(getPasswordOptions)[3])
+VM1889:1 undefined
+undefined
+var moznosti = getPasswordOptions
+undefined
+var moznosti = getPasswordOptions()
+undefined
+console.log(moznosti)
+VM2133:1 (5) [{…}, {…}, {…}, {…}, {…}]0: {isTrue: true, arrayAssigned: Array(26)}1: {isTrue: true, arrAssigned: Array(26)}2: {isTrue: true, arrAssigned: Array(10)}3: {isTrue: true, arrAssigned: Array(23)}4: {howLong: 30}length: 5[[Prototype]]: Array(0)
+undefined
+console.log(object.entries(moznosti)[2])
+VM2295:1 Uncaught ReferenceError: object is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM2295:1
+console.log(Object.entries(moznosti)[2])
+VM2503:1 (2) ['2', {…}]0: "2"1: {isTrue: true, arrAssigned: Array(10)}length: 2[[Prototype]]: Array(0)
+undefined
+console.log(Object.entries(moznosti)[2].arrayAssigned)
+VM2847:1 undefined
+undefined
+console.log(Object.entries(moznosti)[2].arrAssigned)
+
+VM2857:1 undefined
+undefined
+console.log(Object.entries(moznosti)[2][1].arrAssigned)
+
+
+VM2871:1 (10) ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+undefined*/
