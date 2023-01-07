@@ -105,25 +105,31 @@ alert("Welcome, please keep in mind password can only be 10-64 characters long a
  const specials = confirm("Would you like your password to include special characters?");//will return boolean
 //the return is an object so I can access all the choices 
  
-let options = [
+/*let options = [
  {isTrue: lowerCase, arrayAssigned: lowerCasedCharacters}, 
  {isTrue:upperCase, arrAssigned : upperCasedCharacters },
  {isTrue: numerics, arrAssigned : numericCharacters},
  {isTrue: specials, arrAssigned : specialCharacters},
- {howLong: Number(long),}]
+ {howLong: Number(long),}]*/
+ let options = [[lowerCase, lowerCasedCharacters], [upperCase, upperCasedCharacters], [numerics, numericCharacters], [ specials, specialCharacters], long]
+
  return options;
  }
 // Function for getting a random element from an array
 function getRandom(arr) {
- return arr[Math.floor(Math.random() * arr.length)]
+ return arr[Math.floor(Math.random() * arr.length)];
 }
-function pickFromOptions(obj){
-  for (let i = 0; i < Object.entries(obj).length; i++){
-    if (obj[i].isTrue == true){
-      console.log(Object.entries(obj)[i][1].arrAssigned)
+//change 
 
+//this function will make sure we are only picking characters from chosen arrays
+function pickFromOptions(par){
+   for (let i = 0; i < par.length; i++){
+    if (par[i][0] === true){
+      let any = getRandom(par[i][1]);
+      console.log(any)
     }
-  }
+
+}
 }
 
 
