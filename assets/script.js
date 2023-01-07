@@ -123,38 +123,36 @@ function getRandom(arr) {
 
 //this function will make sure we are only picking characters from chosen arrays
 function pickFromOptions(par){
+  let picked =[]
    for (let i = 0; i < par.length; i++){
     if (par[i][0] === true){
       let any = getRandom(par[i][1]);
-      console.log(any)
-    }
-
-}
+      picked.push(any)
+    }}
+    return picked
 }
 
 
 // Function to generate password with user input
-/*function generatePassword() {
-  let jdeTo = 0
+function generatePassword() {
   let password = [];
   let options = getPasswordOptions();
-  for (let i = 0; i < options.howLong; i++){
-    for (let y = 0 ; y < options.length -1; y++){
-      if(options[y].isTrue == true){
-        password.push(options[y].arrAssigned)
-        
-      }
+  //this if inside the function makes sure that users input is validated, in this case between 10 to 64 characters long and that at least one set of characters is picked
+  if(options[4] < 10 || options[4] > 64){
+    return alert("HEY! Password should not be shorter then 10 characters or longer then 64! Try again!")
+  } else if (pickFromOptions(options).length < 1){
+    return alert("How am I to create password without characters? Try again!!")
+  } else{
+  for (let i = 0; i < options[4]; i++){
+     password.push(pickFromOptions(options)[Math.floor(Math.random() * pickFromOptions(options).length )])
+        }
+  return password.join('');}
     }
-    }
-  password
-  
-  }
-  
-    
-    
-    //options.filter(options => options.name == true);
-    //password.push(getRandom(options.arrAssigned));
 
+  
+
+  
+  
     //for (const _key in options){
       //if(options.name == true){
        // password.push(getRandom(options.arrAssigned))
